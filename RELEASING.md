@@ -58,8 +58,8 @@ and [customizing the workflow](https://developer.apple.com/documentation/securit
 
    ```sh
    git push origin master
-   git tag v1.3.0
-   git push origin v1.3.0
+   git tag v1.0.0
+   git push origin v1.0.0
    ```
 
 4. The tag must match `Info.plist`. CI tests/builds on Intel and Apple Silicon.
@@ -79,7 +79,7 @@ shasum -a 256 --check SHA256SUMS.txt
 For a notarized release:
 
 ```sh
-xcrun stapler validate CONNECT6Link-1.3.0-universal.dmg
+xcrun stapler validate CONNECT6Link-1.0.0-universal.dmg
 ```
 
 The app targets macOS 13+, not older releases. Do not claim support for additional

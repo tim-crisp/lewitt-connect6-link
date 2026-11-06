@@ -101,6 +101,25 @@ jobs:
               'Organization-managed Macs may prohibit unnotarized apps.' > RELEASE-INFO.txt
           fi
           printf '\n%s\n' 'Requires one LEWITT CONNECT 6 with firmware 2.2.7. Independent software; not affiliated with LEWITT.' >> RELEASE-INFO.txt
+          python3 - <<'PYNOTES'
+          from pathlib import Path
+          import plistlib
+          version = plistlib.loads(Path('../Info.plist').read_bytes())['CFBundleShortVersionString']
+          lines = Path('../CHANGELOG.md').read_text().splitlines()
+          notes = []
+          collecting = False
+          for line in lines:
+              if line.startswith('## '):
+                  if collecting:
+                      break
+                  collecting = line.removeprefix('## ').split()[0] == version
+              elif collecting:
+                  notes.append(line)
+          if not notes:
+              raise SystemExit('Missing changelog entry for this release version.')
+          with Path('RELEASE-INFO.txt').open('a') as output:
+              output.write('\n## Changes\n' + '\n'.join(notes).strip() + '\n')
+          PYNOTES
       - name: Upload release assets
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         with:
