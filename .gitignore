@@ -1,0 +1,7 @@
+build/
+dist/
+research/
+.DS_Store
+*.p12
+*.p8
+*.keychain-db

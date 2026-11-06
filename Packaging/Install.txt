@@ -1,0 +1,19 @@
+CONNECT 6 Link
+
+Drag CONNECT 6 Link.app to Applications, eject this disk, then open the app from
+Applications. Its controls appear in the menu bar, not the Dock.
+
+Requires macOS 13 Ventura or newer on an Intel or Apple Silicon Mac, plus one
+LEWITT CONNECT 6 running firmware 2.2.7. No particular serial number or USB port
+is required. Unsupported firmware is refused rather than written to.
+
+Linking starts off. Enable it when you want all three output volumes to follow.
+Use the keyboard icon to select the output controlled by Mac volume keys.
+
+If the release is described as unnotarized, macOS may block its first launch.
+Only if you trust this project's download, use System Settings > Privacy &
+Security > Open Anyway after attempting to open the app. Organization-managed
+Macs may disallow this. Notarized releases do not need that exception.
+
+Independent community software. Not affiliated with or endorsed by LEWITT.
+Source and release information: https://github.com/tim-crisp/lewitt-connect6-link
